@@ -68,8 +68,8 @@ describe("Clase GameBoardSpec", function(){
     var objeto = {1:"nave"};
     var tablero = new GameBoard();
     tablero.add(objeto);
-    tablero.remove(objeto);
     tablero.resetRemoved();
+    tablero.remove(objeto);
     expect(tablero.finalizeRemoved()).toEqual("");
   });
 });
