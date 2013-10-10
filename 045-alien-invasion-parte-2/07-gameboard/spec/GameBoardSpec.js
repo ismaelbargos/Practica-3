@@ -57,8 +57,19 @@
 
 */
 
+describe("Clase GameBoardSpec", function(){
   it("Probar el añadir", function(){
-    var objeto = {"hola"};
-    var tablero = new GameBoardSpec ();
-    expect(tablero.add(objeto).toequal(tablero.objects[objeto]));
+    var objeto = {1:"nave"};
+    var tablero = new GameBoard();
+    expect(tablero.add(objeto)).toEqual(tablero.objects[0]);
   });
+
+  it("Probar el eliminar", function(){
+    var objeto = {1:"nave"};
+    var tablero = new GameBoard();
+    tablero.add(objeto);
+    tablero.remove(objeto);
+    tablero.resetRemoved();
+    expect(tablero.finalizeRemoved()).toEqual("");
+  });
+});
