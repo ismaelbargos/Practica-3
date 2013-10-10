@@ -91,4 +91,17 @@ describe("Clase GameBoardSpec", function(){
     tablero.finalizeRemoved();
     expect(tablero.objects[0]).toEqual(undefined);
   });
+
+  it("Probar el overlap",function(){
+    var rect = function(x,y,h,w){
+      this.x=x;
+      this.y=y;
+      this.h=h;
+      this.w=w;
+    };
+    var tablero = new GameBoard();
+    var rect1 = rect(20,3,4,5);
+    var rect2 = rect(20,3,4,6);
+    expect(tablero.overlap(rect1,rect2)).toEqual(true);
+  });
 });
