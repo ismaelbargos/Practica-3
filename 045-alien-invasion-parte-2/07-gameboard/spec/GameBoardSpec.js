@@ -56,3 +56,9 @@
     colisionado con objetos de cierto tipo, no con todos los objetos.
 
 */
+
+  it("Probar el añadir", function(){
+    var objeto = {"hola"};
+    var tablero = new GameBoardSpec ();
+    expect(tablero.add(objeto).toequal(tablero.objects[objeto]));
+  });
