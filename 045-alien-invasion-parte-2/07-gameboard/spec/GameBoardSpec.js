@@ -64,12 +64,22 @@ describe("Clase GameBoardSpec", function(){
     expect(tablero.add(objeto)).toEqual(tablero.objects[0]);
   });
 
-  it("Probar el eliminar", function(){
+  //it("Probar el eliminar", function(){
+    
+  it("Probar el resetRemoved", function(){
     var objeto = {1:"nave"};
     var tablero = new GameBoard();
-    tablero.add(objeto);
+    var obj1 = tablero.add(objeto);
+    expect(tablero.resetRemoved()).toEqual(undefined);
+  });
+
+  it("Probar el removed", function(){
+    var objeto = {1:"nave"};
+    var tablero = new GameBoard();
+    var obj1 = tablero.add(objeto);
     tablero.resetRemoved();
     tablero.remove(objeto);
-    expect(tablero.finalizeRemoved()).toEqual("");
+    expect(tablero.objects[0]).toEqual(tablero.removed[0]);
   });
+    
 });
