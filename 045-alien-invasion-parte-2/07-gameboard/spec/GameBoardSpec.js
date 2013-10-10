@@ -93,11 +93,12 @@ describe("Clase GameBoardSpec", function(){
   });
 
   it("Probar el overlap",function(){
-    var rect = function(x,y,h,w){
-      this.x=x;
-      this.y=y;
-      this.h=h;
-      this.w=w;
+    var rect = function(a,b,c,d){
+      this.x=a;
+      this.y=b;
+      this.h=c;
+      this.w=d;
+      return rect;
     };
     var tablero = new GameBoard();
     var rect1 = rect(20,3,4,5);
