@@ -93,6 +93,7 @@ describe("Clase GameBoardSpec", function(){
   });
 
   it("Probar el overlap",function(){
+
     var tablero = new GameBoard();
     var rect = function(x,y,w,h){
       this.x=x;
@@ -105,5 +106,22 @@ describe("Clase GameBoardSpec", function(){
     var rect3= new rect(100,100,5,5);
     expect(tablero.overlap(rect1,rect2)).toBe(true);
     expect(tablero.overlap(rect1,rect3)).toBe(false);
+  });
+
+  it("Probar iterate y detect",function(){
+
+    var tablero = new GameBoard();
+    var obj1 = {
+        prueba = function(){ return 0}
+    };
+    var obj2 = {
+        prueba = function(){ return 0}
+    };
+
+    tablero.add(obj1);
+    tablero.add(obj2);
+    tablero.iterate(prueba);
+    _.each(function(element, index, list)({expect(element[0].prueba).toHaveBeenCalled()});
+
   });
 });
