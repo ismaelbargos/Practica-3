@@ -129,8 +129,6 @@ describe("Clase GameBoardSpec", function(){
     tablero.add(obj2);
     tablero.iterate("prueba");
     _.each(tablero.objects,function(element, index, list){expect(element.prueba).toHaveBeenCalled()});
-    var objeto = tablero.detect(obj1.prueba);
-    _.each(tablero.objects,function(element, index, list){expect(element.prueba).toEqual(objeto)});
   });
 
   it ("Probar detect", function(){
@@ -150,6 +148,6 @@ describe("Clase GameBoardSpec", function(){
     tablero.add(obj1);
     tablero.add(obj2);
     var objeto = tablero.detect(obj1.prueba);
-    _.each(tablero.objects,function(element, index, list){expect(element.prueba).toEqual(objeto)});
+    _.each(tablero.objects,function(element, index, list){expect(element.delta).toEqual(objeto.delta)});
   })
 });
