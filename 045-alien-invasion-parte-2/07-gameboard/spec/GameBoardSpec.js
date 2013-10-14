@@ -108,16 +108,19 @@ describe("Clase GameBoardSpec", function(){
     expect(tablero.overlap(rect1,rect3)).toBe(false);
   });
 
-  it("Probar iterate y detect",function(){
+  it("Probar iterate",function(){
 
     var tablero = new GameBoard();
     var obj1 = {
-        v: 1;
-        prueba: function(){ return this.v}
+      delta: 2,
+      prueba: function(){
+        return this.delta;}
     };
+
     var obj2 = {
-        v: 2
-        prueba: function(){ return this.v}
+      delta: 2,
+      prueba: function(){
+        return this.delta;}
     };
 
     spyOn(obj1,"prueba");
@@ -126,7 +129,27 @@ describe("Clase GameBoardSpec", function(){
     tablero.add(obj2);
     tablero.iterate("prueba");
     _.each(tablero.objects,function(element, index, list){expect(element.prueba).toHaveBeenCalled()});
-    var objeto = tablero.detect("prueba");
-    _.each(tablero.objects.function(element, index, list){expect(element.prueba).toEqual(objeto.detect)});
+    var objeto = tablero.detect(obj1.prueba);
+    _.each(tablero.objects,function(element, index, list){expect(element.prueba).toEqual(objeto)});
   });
+
+  it ("Probar detect", function(){
+    var tablero = new GameBoard();
+    var obj1 = {
+      delta: 2,
+      prueba: function(){
+        return this.delta;}
+    };
+
+    var obj2 = {
+      delta: 2,
+      prueba: function(){
+        return this.delta;}
+    };
+    
+    tablero.add(obj1);
+    tablero.add(obj2);
+    var objeto = tablero.detect(obj1.prueba);
+    _.each(tablero.objects,function(element, index, list){expect(element.prueba).toEqual(objeto)});
+  })
 });
