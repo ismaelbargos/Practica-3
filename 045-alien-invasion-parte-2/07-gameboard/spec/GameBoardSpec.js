@@ -112,10 +112,12 @@ describe("Clase GameBoardSpec", function(){
 
     var tablero = new GameBoard();
     var obj1 = {
-        prueba: function(){ return 0}
+        v: 1;
+        prueba: function(){ return this.v}
     };
     var obj2 = {
-        prueba: function(){ return 0}
+        v: 2
+        prueba: function(){ return this.v}
     };
 
     spyOn(obj1,"prueba");
@@ -124,6 +126,7 @@ describe("Clase GameBoardSpec", function(){
     tablero.add(obj2);
     tablero.iterate("prueba");
     _.each(tablero.objects,function(element, index, list){expect(element.prueba).toHaveBeenCalled()});
-
+    var objeto = tablero.detect("prueba");
+    _.each(tablero.objects.function(element, index, list){expect(element.prueba).toEqual(objeto.detect)});
   });
 });
