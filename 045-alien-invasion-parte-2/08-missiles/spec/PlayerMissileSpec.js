@@ -42,8 +42,15 @@ describe("Clase PlayerMissileSpec", function(){
     Proyectil.step(2);
     expect(Proyectil.y).toEqual(-1410);
   });
-
-  
+  it("Draw", function(){
+    SpriteSheet.map = { 
+      missile: {sx: 0, sy: 30, w: 2, h: 10, frames: 1}
+    };
+    var Proyectil = new PlayerMissile(0,0);
+    spyOn(Proyectil, "draw");
+    Proyectil.draw(1);
+    expect(Proyectil.draw).toHaveBeenCalled();
+  });
 });
 
 
