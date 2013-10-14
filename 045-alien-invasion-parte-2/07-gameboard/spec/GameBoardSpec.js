@@ -100,7 +100,7 @@ describe("Clase GameBoardSpec", function(){
       this.y=y;
       this.h=h;
       this.w=w;
-    }
+    };
     var rect1= new rect(1,1,4,5);
     var rect2= new rect(1,3,4,6);
     var rect3= new rect(100,100,5,5);
@@ -112,7 +112,7 @@ describe("Clase GameBoardSpec", function(){
 
     var tablero = new GameBoard();
     var obj1 = {
-      delta: 2,
+      delta: 3,
       prueba: function(){
         return this.delta;}
     };
@@ -132,22 +132,23 @@ describe("Clase GameBoardSpec", function(){
   });
 
   it ("Probar detect", function(){
+    
     var tablero = new GameBoard();
-    var obj1 = {
+
+    var creador = {
       delta: 2,
-      prueba: function(){
-        return this.delta;}
+      prueba: function(){return this.delta}
     };
 
-    var obj2 = {
-      delta: 2,
-      prueba: function(){
-        return this.delta;}
+    var obj1 = {
+      delta: 4
     };
-    
+    var obj2 = {
+      delta: 7
+    };
     tablero.add(obj1);
     tablero.add(obj2);
-    var objeto = tablero.detect(obj1.prueba);
-    _.each(tablero.objects,function(element, index, list){expect(element.delta).toEqual(objeto.delta)});
-  })
+     var objeto = tablero.detect(creador.prueba);
+    _.each(tablero.objects,function(element, index, list){expect(list[0].delta).toEqual(objeto.delta)});
+  });
 });
