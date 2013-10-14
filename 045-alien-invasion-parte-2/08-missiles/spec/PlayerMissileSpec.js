@@ -27,3 +27,24 @@
     la clase en el prototipo
 
 */
+
+describe("Clase PlayerMissileSpec", function(){
+  
+  it("Step", function(){
+    SpriteSheet.map = { 
+      missile: {sx: 0, sy: 30, w: 2, h: 10, frames: 1}
+    };
+   var board = {
+      remove: function(){return ;},
+    };
+    var Proyectil = new PlayerMissile(0,0);
+    Proyectil.board = board;
+    Proyectil.step(2);
+    expect(Proyectil.y).toEqual(-1410);
+  });
+
+  
+});
+
+
+
